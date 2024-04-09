@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Bus Routes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ... (previous styles) ... */
+
+        #bus-suggestions-section {
+            background-color: #e74c3c; /* Red background for bus suggestions section */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #ecf0f1; /* Light gray text color */
+        }
+        .app-container{
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fcfcfc;
+            padding: 70px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #bus-suggestions-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        #bus-suggestions-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #bus-suggestions-list li {
+            margin-bottom: 10px;
+        }
+
+        #bus-suggestions-list h3 {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Bus Routes and Timings</h1>
+
+        <section class="bus-routes" id="bus-routes-section">
+            <h2>Bus Routes</h2>
+            <ul id="bus-routes-list">
+                <!-- Bus routes will be dynamically added here -->
+            </ul>
+        </section>
+
+        <section class="bus-timings" id="bus-timings-section">
+            <h2>Bus Timings</h2>
+            <table id="bus-timings-table">
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Weekdays</th>
+                        <th>Weekends</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Bus timings will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
+
+        <div id="user-location-section">
+            <iframe src="http://localhost:8502/" width="100%" height="400px"></iframe>
+            <h2>User Location</h2>
+            <p>Current Location: <span id="current-location">Fetching...</span></p>
+            <label for="destination">Enter Destination:</label>
+            <input type="text" id="destination" placeholder="Bus Stop Name">
+            <button onclick="getBusSuggestions()">Get Bus Suggestions</button>
+        </div>
+
+        <section id="bus-suggestions-section">
+            <h2>Bus Suggestions</h2>
+            <ul id="bus-suggestions-list">
+                <!-- Bus suggestions will be dynamically added here -->
+            </ul>
+        </section>
+
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        const busRoutesData = [
+            { route: 'Route 101', stops: 'Stop A - Stop B - Stop C' },
+            { route: 'Route 102', stops: 'Stop X - Stop Y - Stop Z' },
+            // Add more bus routes as needed
+        ];
+
+        const busTimingsData = [
+            { route: 'Route 101', weekdays: '7:00 AM - 9:00 PM', weekends: '8:00 AM - 7:30 PM' },
+            { route: 'Route 102', weekdays: '6:30 AM - 8:45 PM', weekends: '9:15 AM - 6:45 PM' },
+            // Add more rows for bus timings as needed
+        ];
+
+        const destinationsData = [
+            { name: 'Bus Stop 1', suggestions: ['Route 101', 'Route 102'], fares: [10, 15] },
+            { name: 'Bus Stop 2', suggestions: ['Route 101'], fares: [8] },
+            // Add more destinations as needed
+        ];
+
+        function displayBusRoutes() {
+            const busRoutesList = document.getElementById('bus-routes-list');
+            busRoutesData.forEach(route => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<h3>${route.route}</h3><p>Stops: ${route.stops}</p>`;
+                busRoutesList.appendChild(listItem);
+            });
+        }
+
+        function displayBusTimings() {
+            const busTimingsTable = document.getElementById('bus-timings-table').getElementsByTagName('tbody')[0];
+            busTimingsData.forEach(timing => {
+                const row = busTimingsTable.insertRow();
+                row.innerHTML = `<td>${timing.route}</td><td>${timing.weekdays}</td><td>${timing.weekends}</td>`;
+            });
+        }
+
+        function getBusSuggestions() {
+            const destinationInput = document.getElementById('destination');
+            const destinationName = destinationInput.value.trim();
+
+            if (!destinationName) {
+                alert('Please enter a destination.');
+                return;
+            }
+
+            const destination = destinationsData.find(dest => dest.name.toLowerCase() === destinationName.toLowerCase());
+
+            if (destination) {
+                displaySuggestions(destination);
+            } else {
+                alert('Destination not found. Please check the name and try again.');
+            }
+        }
+
+        function displaySuggestions(destination) {
+            const busSuggestionsList = document.getElementById('bus-suggestions-list');
+            busSuggestionsList.innerHTML = '';
+
+            destination.suggestions.forEach(route => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<h3>${route}</h3><p>Timings: ${getTimings(route)}</p><p>Fare: ${getFare(route)}</p>`;
+                busSuggestionsList.appendChild(listItem);
+            });
+        }
+
+        function getTimings(route) {
+            const timing = busTimingsData.find(timing => timing.route === route);
+            return timing ? `Weekdays: ${timing.weekdays}, Weekends: ${timing.weekends}` : 'Timings not available';
+        }
+
+        function getFare(route) {
+            const destination = destinationsData.find(dest => dest.suggestions.includes(route));
+            const index = destination.suggestions.indexOf(route);
+            return destination.fares[index] ? `$${destination.fares[index]}` : 'Fare not available';
+        }
+
+        async function getUserLocation() {
+            try {
+                const position = await getCurrentPosition();
+                const userLocation = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+                document.getElementById('current-location').textContent = userLocation;
+                alert(`User Location: ${userLocation}`);
+            } catch (error) {
+                console.error('Error getting user location:', error.message);
+                alert('Error getting user location. Please enable location services and try again.');
+            }
+        }
+
+        function getCurrentPosition() {
+            return new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject);
+            });
+        }
+
+        async function init() {
+            displayBusRoutes();
+            displayBusTimings();
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

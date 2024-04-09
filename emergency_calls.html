@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Emergency Calls</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ... (previous styles) ... */
+
+        .local-stations,
+        .location-sharing {
+            background-color: #e74c3c; /* Dark red background for sections */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .local-stations h2,
+        .location-sharing h2 {
+            color: #ecf0f1; /* Light gray heading color */
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .local-stations p,
+        .location-sharing p {
+            color: #ecf0f1; /* Light gray text color */
+            font-size: 1.1em;
+        }
+
+        .station-info,
+        .location-sharing button {
+            margin-top: 10px;
+        }
+
+        .station-info h3 {
+            color: #ecf0f1; /* Light gray heading color */
+            font-size: 1.2em;
+        }
+
+        .station-info p,
+        .location-sharing button {
+            color: #ecf0f1; /* Light gray text color */
+            font-size: 1em;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .station-info p:hover,
+        .location-sharing button:hover {
+            background-color: #c0392b; /* Darker red background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Emergency Calls</h1>
+
+        <section class="local-stations">
+            <h2>Local Police and Fire Stations</h2>
+            <p>Contact your local authorities in case of emergency:</p>
+            <div class="station-info">
+                <h3>Local Police Station</h3>
+                <p>Contact: 123</p>
+            </div>
+            <div class="station-info">
+                <h3>Local Fire Station</h3>
+                <p>Contact: 456</p>
+            </div>
+        </section>
+
+        <section class="location-sharing">
+            <h2>Share Your Location with a Guardian</h2>
+            <p>Stay safe by sharing your real-time location with a trusted guardian:</p>
+            <button onclick="shareLocation()">Share Location</button>
+        </section>
+
+        <a href="index.html">Back to Home</a>
+    </div>
+
+    <script>
+        function shareLocation() {
+            // Implement location-sharing functionality here
+            alert('Location shared with your guardian!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Metro Train Updates</title>
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        h3,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #3498db; /* Blue background */
+            color: #ecf0f1; /* Light gray text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        .app-container {
+            background-color: #e67e22; /* Orange container background */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 70px;
+            width: 40%;
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #ecf0f1; /* Light gray headings */
+        }
+
+        .train-routes ul,
+        .train-routes li,
+        .train-timings table,
+        .train-timings th,
+        .train-timings td,
+        .train-updates ul,
+        .train-updates li {
+            color: #ecf0f1; /* Light gray text color */
+        }
+
+        .train-routes h3,
+        .train-timings th,
+        .train-timings td {
+            color: #ecf0f1; /* Light gray heading color */
+            font-size: 1.2em;
+        }
+
+        .train-routes p,
+        .train-timings table,
+        .train-updates p {
+            color: #ecf0f1; /* Light gray text color */
+            font-size: 1.1em;
+        }
+
+        /* Table styling for train timings */
+        .train-timings table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        .train-timings th,
+        .train-timings td {
+            padding: 10px;
+            border: 1px solid #d35400; /* Border color for the table */
+        }
+
+        .train-timings th {
+            background-color: #d35400; /* Dark orange background for table headers */
+        }
+
+        .train-timings tbody tr:nth-child(even) {
+            background-color: #e74c3c; /* Dark red background for even rows */
+        }
+
+        .train-timings tbody tr:nth-child(odd) {
+            background-color: #f39c12; /* Light orange background for odd rows */
+        }
+
+        /* Hover effect for individual elements in service updates */
+        .train-updates li:hover {
+            background-color: #d35400; /* Darker orange background on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <h1>Metro Train Updates</h1>
+
+        <section class="train-routes">
+            <h2>Metro Train Routes</h2>
+            <ul>
+                <li>
+                    <h3>Red Line</h3>
+                    <p>Stations: Station A - Station B - Station C</p>
+                </li>
+                <li>
+                    <h3>Blue Line</h3>
+                    <p>Stations: Station X - Station Y - Station Z</p>
+                </li>
+                <!-- Add more train routes as needed -->
+            </ul>
+        </section>
+
+        <section class="train-timings">
+            <h2>Metro Train Timings</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Weekdays</th>
+                        <th>Weekends</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Red Line</td>
+                        <td>6:00 AM - 10:00 PM</td>
+                        <td>7:00 AM - 9:30 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Blue Line</td>
+                        <td>5:30 AM - 9:45 PM</td>
+                        <td>8:15 AM - 8:00 PM</td>
+                    </tr>
+                    <!-- Add more rows for train timings as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="train-updates">
+            <h2>Service Updates</h2>
+            <p>Stay informed about any service updates or disruptions in the metro train service:</p>
+            <ul>
+                <li>
+                    <p>Red Line: Delays expected due to maintenance work.</p>
+                </li>
+                <li>
+                    <p>Blue Line: Normal service with some delays.</p>
+                </li>
+                <!-- Add more updates as needed -->
+            </ul>
+        </section>
+
+        <a href="index.html">Back to Home</a>
+    </div>
+</body>
+
+</html>

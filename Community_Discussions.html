@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Community Discussions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .app-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2a4365;
+            font-size: xx-large;
+        }
+
+        .discussion-board {
+            margin-top: 20px;
+        }
+
+        .discussion-category {
+            background-color: #3498db; /* Blue background for discussion categories */
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #ecf0f1; /* Light gray text color */
+        }
+
+        .discussion-category h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .discussion-topic {
+            background-color: #2c3e50; /* Dark gray background for discussion topics */
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .discussion-topic h3 {
+            font-size: 1.2em;
+            color: #ecf0f1; /* Light gray heading color */
+            margin-bottom: 5px;
+        }
+
+        .discussion-topic p {
+            font-size: 1.1em;
+            color: #ecf0f1; /* Light gray text color */
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #1f618d;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="text-2xl font-bold mb-4">Community Discussions</h1>
+
+        <!-- Discussion Categories -->
+        <div class="discussion-category">
+            <h2>Local Events</h2>
+            <div class="discussion-board">
+                <!-- Example Discussion Topic -->
+                <div class="discussion-topic">
+                    <h3>Upcoming Festival in the Park</h3>
+                    <p>Let's discuss the plans for the upcoming festival in the local park. Share your ideas and suggestions!</p>
+                    <button onclick="joinDiscussion()">Join Discussion</button>
+                </div>
+                <!-- Add more discussion topics as needed -->
+            </div>
+        </div>
+
+        <div class="discussion-category">
+            <h2>Safety Concerns</h2>
+            <div class="discussion-board">
+                <!-- Example Discussion Topic -->
+                <div class="discussion-topic">
+                    <h3>Improving Street Lighting</h3>
+                    <p>Discuss safety concerns related to street lighting in our community. How can we improve safety at night?</p>
+                    <button onclick="joinDiscussion()">Join Discussion</button>
+                </div>
+                <!-- Add more discussion topics as needed -->
+            </div>
+        </div>
+
+        <div class="discussion-category">
+            <h2>Development Projects</h2>
+            <div class="discussion-board">
+                <!-- Example Discussion Topic -->
+                <div class="discussion-topic">
+                    <h3>New Community Park Project</h3>
+                    <p>Share your thoughts on the proposed community park project. What features would you like to see?</p>
+                    <button onclick="joinDiscussion()">Join Discussion</button>
+                </div>
+                <!-- Add more discussion topics as needed -->
+            </div>
+        </div>
+
+        <!-- Add more discussion categories as needed -->
+
+        <a href="dashboard.html">Back to Dashboard</a>
+    </div>
+    <style>
+        /* Additional Custom Styles */
+
+        /* ... (existing styles) ... */
+
+        .survey-poll-section {
+            margin-top: 30px;
+        }
+
+        .survey-poll {
+            background-color: #e74c3c; /* Dark red background for surveys and polls */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #ecf0f1; /* Light gray text color */
+        }
+
+        .survey-poll h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .survey-poll p {
+            font-size: 1.1em;
+        }
+
+        .survey-poll button {
+            background-color: #c0392b; /* Darker red background for buttons */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 15px;
+        }
+
+        .survey-poll button:hover {
+            background-color: #992c22; /* Darker red background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1 class="text-2xl font-bold mb-4">Community Discussions</h1>
+
+        <!-- ... (existing content) ... -->
+
+        <!-- Survey and Poll Section -->
+        <div class="survey-poll-section">
+            <!-- Community Survey -->
+            <div class="survey-poll">
+                <h2>Community Survey</h2>
+                <p>Share your opinions on the proposed community garden project. Your input matters!</p>
+                <button onclick="takeSurvey()">Take Survey</button>
+            </div>
+
+            <!-- Community Poll -->
+            <div class="survey-poll">
+                <h2>Community Poll</h2>
+                <p>Vote for the preferred location of the new playground. Let's make a collective decision!</p>
+                <button onclick="voteInPoll()">Vote in Poll</button>
+            </div>
+        </div>
+
+        <a href="dashboard.html">Back to Dashboard</a>
+    </div>
+
+    <script>
+        function takeSurvey() {
+            // Implement functionality to take the survey
+            alert('You are now taking the community survey!');
+        }
+
+        function voteInPoll() {
+            // Implement functionality to vote in the poll
+            alert('You are now voting in the community poll!');
+        }
+    </script>
+
+    <script>
+        function joinDiscussion() {
+            // Implement functionality to join the discussion
+            alert('You have joined the discussion!');
+        }
+    </script>
+</body>
+</html>

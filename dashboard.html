@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="styles.css">
+ 
+    <style>
+        /* Additional Custom Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('img/dash.jpg'); /* Replace 'your-image.jpg' with the path to your image */
+            background-size: cover; /* This ensures that the background image covers the entire screen */
+            background-position: center;
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer; /* Add cursor style for better UX */
+        }
+
+        header {
+            background-color: black;
+            padding: 10px;
+            text-align: center;
+            position: relative; /* Ensure relative positioning for absolute icon */
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .app-container {
+            background-color: rgba(255, 255, 255, 0.10); /* Adjust the last value (0.5) for transparency */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+
+        h1 {
+            color: white;
+            font-size: xx-large;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Adjust the last value (0.5) for transparency */
+        }
+        
+
+        .nav-link {
+            padding: 15px;
+            background-color: rgba(44, 82, 130, 0.8); /* Adjust the last value (0.5) for transparency */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(44, 82, 130, 0.1); /* Adjust the last value (0.8) for hover transparency */
+        }
+        
+
+        .nav-link:hover {
+            background-color: #b6ab81;
+        }
+
+        /* Updates and Announcements Styles */
+        .updates-container {
+            background-color: #b6ab81; /* Green background for updates */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #ecf0f1; /* Light gray text color */
+        }
+
+        .updates-container {
+            height: 100px; /* Set a fixed height for the updates container */
+            overflow: hidden;
+            transition: height 0.3s ease-in-out;
+        }
+        
+    
+        .updates-container.show {
+            height: auto;
+        }
+
+        /* Feedback Form Styles */
+        #feedback-section {
+            display: none; /* Initially hidden */
+        }
+
+        #feedback-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #feedback-form label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        #feedback-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            appearance: none;
+            -webkit-appearance: none;
+            background: url('https://cdn.jsdelivr.net/npm/emoji.css/dist/emoji.min.css') no-repeat right center/contain;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #feedback-form textarea {
+            width: 100%;
+            resize: vertical;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #feedback-form button {
+            background-color: #2c5282;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #feedback-form button:hover {
+            background-color: #1a365d;
+        }
+
+        .chat{
+            position:absolute;
+            left: 1150px;
+            top: 50px;
+            border: 2px solid white;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Menu Links -->
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html" >Contact</a>
+        <a href="Setting.html" >Settings</a>
+
+        <!-- Feedback Icon -->
+        <span class="icon" aria-hidden="true" id="feedback-icon">&#128172; Feedback</span>
+    </header>
+
+    <div class="app-container">
+        <h1 class="text-2xl font-bold mb-4">Smart Citizen App</h1>
+        <div class="updates-container">
+            <h2>Updates and Announcements</h2>
+            <p>Here are the latest updates and announcements:</p>
+        </div>
+        <!-- Navigation Links -->
+        <nav>
+            <a href="report.html" class="nav-link" style="text-align: center;">
+                <img src="img/report.png" alt="Report an Issue" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Report an Issue</span>
+            </a>
+            <a href="municipal_services.html" class="nav-link" style="text-align: center;">
+                <img src="img/municipal.png" alt="Municipal Services" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Municipal Services</span>
+            </a>
+            <a href="Community_Discussions.html" class="nav-link" style="text-align: center;">
+                <img src="img/community.png" alt="Community Engagement" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Community Engagement</span>
+            </a>
+            <a href="rental.html" class="nav-link">
+                <img src="img/rental-car.png" alt="Rental Mini" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Rental Mini</span>
+            </a>
+            <a href="metro_updates.html" class="nav-link" style="text-align: center;">
+                <img src="img/metro.png" alt="Metro Train" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Metro Train</span>
+            </a>
+            <a href="traffic_updates.html" class="nav-link" style="text-align: center;">
+                <img src="img/traffic.png" alt="Traffic Updates" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Traffic Updates</span>
+            </a>
+            <a href="emergency_calls.html" class="nav-link" style="text-align: center;">
+                <img src="img/emergency-call.png" alt="Emergency Calls" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Emergency Calls</span>
+            </a>
+            <a href="bus_routes.html" class="nav-link" style="text-align: center;">
+                <img src="img/bus.png" alt="Bus Routes" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Bus Routes</span>
+            </a>
+            <a href="maps.html" class="nav-link" style="text-align: center;">
+                <img src="img/map.png" alt="CBE Map" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">CBE Map</span>
+            </a>
+            <a href="tourism.html" class="nav-link" style="text-align: center;">
+                <img src="img/tourism.png" alt="Tourism" style="width: 60px; height: 60px; border: none; display: inline-block; vertical-align: middle;">
+                <span style="display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 14px;">Tourism</span>
+            </a>
+        </nav>
+
+        <!-- Feedback Section -->
+        <section id="feedback-section">
+            <h2>Feedback Form</h2>
+            <form id="feedback-form">
+                <!-- Feedback Rating -->
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="" disabled selected>Select Rating</option>
+                    <option value="5">&#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                    <option value="4">&#11088; &#11088; &#11088; &#11088;</option>
+                    <option value="3">&#11088; &#11088; &#11088;</option>
+                    <option value="2">&#11088; &#11088;</option>
+                    <option value="1">&#11088;</option>
+                </select>
+    
+                <!-- Feedback Message -->
+                <label for="feedback">Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" required></textarea>
+    
+                <!-- Submit Button -->
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+        <!-- Updates and Announcements -->
+       
+    </div>
+
+    <iframe src="http://localhost:8501" width="320" height="650" class='chat'></iframe>
+
+    <script>
+        console.log('Script is running!');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Toggle feedback form visibility when the icon is clicked
+            const feedbackIcon = document.getElementById('feedback-icon');
+            const feedbackSection = document.getElementById('feedback-section');
+
+            feedbackIcon.addEventListener('click', function () {
+                feedbackSection.style.display = feedbackSection.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const updatesContainer = document.querySelector('.updates-container');
+    
+            // Function to show updates with sliding animation
+            function showUpdates() {
+                updatesContainer.classList.toggle('show');
+            }
+    
+            // Set an interval to simulate updating content (you can replace this with actual data fetching logic)
+            let currentIndex = 0; // Track the current index of updates
+            setInterval(function () {
+                // Fetch and update the latest updates content here
+                const latestUpdates = [
+                    "New feature added!",
+                    "Bug fixes and improvements.",
+                    "Stay tuned for more updates.",
+                    "Exciting news coming soon!",
+                    "Enhanced user experience in the latest version.",
+                    "Explore new features in our app update.",
+                    "Thank you for your continued support!"
+                ];
+    
+                // Get the current update and update the content of the updates container
+                const currentUpdate = latestUpdates[currentIndex];
+                updatesContainer.innerHTML = `<p>${currentUpdate}</p>`;
+    
+                // Increment the index for the next update
+                currentIndex = (currentIndex + 1) % latestUpdates.length;
+    
+                // Trigger the showUpdates function after updating content
+                showUpdates();
+            }, 2000); // Update every 2 seconds, adjust as needed
+    
+            // Trigger the showUpdates function initially
+            showUpdates();
+        });
+    </script>
+</body>
+</html>

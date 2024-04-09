@@ -1,0 +1,202 @@
+<!-- municipal_services.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Services - Smart Citizen App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .app-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #2a4365;
+            font-size: large;
+        }
+
+        h3 {
+            color: #2a4365;
+            font-size: medium;
+        }
+
+        p {
+            color: #555;
+        }
+
+        /* Add your additional styles here */
+
+        /* Example button style */
+        .btn {
+            background-color: #2c5282;
+            color: #ffffff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #1a365d;
+        }
+
+        /* Example input style */
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Example validation error message style */
+        .error-message {
+            color: #ff0000;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        /* Additional styles for new features */
+        .file-input {
+            display: block;
+            margin-top: 8px;
+        }
+    </style>
+    <script>
+        // Validation functions for new features
+        function validateCommunityCertificate() {
+            // Validation logic for community certificate application
+            // You can customize this as needed
+            var address = document.getElementById('address').value;
+            var aadharNumber = document.getElementById('aadhar-number').value;
+
+            // Validate address, Aadhar number, and other fields as needed
+
+            alert('Community certificate application successfull !');
+            return false; // Prevent form submission
+        }
+
+        function validateBirthCertificate() {
+            // Validation logic for birth certificate application
+            // You can customize this as needed
+            var applicantName = document.getElementById('applicant-name').value;
+            var proofOfBirth = document.getElementById('proof-of-birth').value;
+            var parentIDCard = document.getElementById('parent-id-card').value;
+            var addressProof = document.getElementById('address-proof').value;
+
+            // Validate applicant name, proof of birth, parent ID card, address proof, and other fields as needed
+
+            alert('Birth certificate application successfull !');
+            return false; // Prevent form submission
+        }
+
+        // Validation functions for new features
+        function validateDeathCertificate() {
+            // Validation logic for death certificate application
+            // You can customize this as needed
+            var birthCertificate = document.getElementById('birth-certificate').value;
+            var affidavit = document.getElementById('affidavit').value;
+            var rationCardCopy = document.getElementById('ration-card-copy').value;
+
+            // Validate birth certificate, affidavit, ration card copy, and other fields as needed
+
+            alert('Death certificate application successfull !');
+            return false; // Prevent form submission
+        }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <h2>Municipal Services</h2>
+
+        <!-- New feature: Apply for Community Certificate -->
+        <section>
+            <h3>Apply for Community Certificate</h3>
+            <p>Apply for a community certificate by providing the necessary details and documents.</p>
+            
+            <!-- Community certificate application form with validation -->
+            <form onsubmit="return validateCommunityCertificate()">
+                <label for="address">Address:</label>
+                <input type="text" id="address" placeholder="Enter your address" required>
+
+                <label for="aadhar-number">Aadhar Card Number:</label>
+                <input type="text" id="aadhar-number" placeholder="Enter your Aadhar card number" required pattern="\d{12}">
+                
+                <label for="photo">Passport Size Photo (Attach File):</label>
+                <input type="file" id="photo" class="file-input" accept="image/*" required>
+
+                <label for="community-certificate">Community Certificate (Attach File):</label>
+                <input type="file" id="community-certificate" class="file-input" accept=".pdf" required>
+
+                <button class="btn" type="submit">Submit Application</button>
+            </form>
+        </section>
+
+        <!-- New feature: Apply for Birth Certificate -->
+        <section>
+            <h3>Apply for Birth Certificate</h3>
+            <p>Apply for a birth certificate by providing the necessary details and documents.</p>
+
+            <!-- Birth certificate application form with validation -->
+            <form onsubmit="return validateBirthCertificate()">
+                <label for="applicant-name">Applicant Name:</label>
+                <input type="text" id="applicant-name" placeholder="Enter applicant's name" required>
+
+                <label for="proof-of-birth">Proof of Birth (Attach File):</label>
+                <input type="file" id="proof-of-birth" class="file-input" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <label for="parent-id-card">Parent Identification Card (Attach File):</label>
+                <input type="file" id="parent-id-card" class="file-input" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <label for="address-proof">Address Proof (Attach File):</label>
+                <input type="file" id="address-proof" class="file-input" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <button class="btn" type="submit">Submit Application</button>
+            </form>
+        </section>
+
+        <!-- New feature: Apply for Death Certificate -->
+        <section>
+            <h3>Apply for Death Certificate</h3>
+            <p>Apply for a death certificate by providing the necessary details and documents.</p>
+
+            <!-- Death certificate application form with validation -->
+            <form onsubmit="return validateDeathCertificate()">
+                <label for="birth-certificate">Birth Certificate of the Deceased (Attach File):</label>
+                <input type="file" id="birth-certificate" class="file-input" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <label for="affidavit">Affidavit Stating Date and Time of Death (Attach File):</label>
+                <input type="file" id="affidavit" class="file-input" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <label for="ration-card-copy">Copy of Ration Card (Attach File):</label>
+                <input type="file" id="ration-card-copy" class="file-input" accept=".pdf, .jpg, .jpeg, .png" required>
+
+                <button class="btn" type="submit">Submit Application</button>
+            </form>
+        </section>
+
+        <!-- Other existing sections remain unchanged -->
+
+    </div>
+</body>
+</html>

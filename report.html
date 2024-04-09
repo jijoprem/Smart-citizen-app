@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Report an Issue</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('img/repbg.jpg'); /* Replace 'your-image.jpg' with the path to your image */
+            background-size: cover; /* This ensures that the background image covers the entire screen */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            margin: 0;
+            padding: 0;
+        }
+        
+
+        .app-container {
+            background-color: rgba(255, 255, 255, 0.1); /* Adjust the last value (0.5) for transparency */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        
+
+        h1 {
+            color: white;
+        }
+
+        #reportForm {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: rgba(249, 249, 249, 0.1); /* Adjust the last value (0.7) for transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+
+        label {
+            display: grid;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #issueType,
+        #description,
+        #imageInput,
+        #locationButton {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #1f618d;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1f618d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <h1>Report an Issue</h1>
+        <form id="reportForm">
+            <label for="issueType">Issue Type:</label>
+            <select id="issueType" name="issueType">
+                <option value="traffic">Traffic</option>
+                <option value="environment">Environmental</option>
+                <option value="publicSafety">Public Safety</option>
+                <option value="waterproblem">Water Problem</option>
+                <option value="drainage">Drainage</option>
+            </select>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+
+            <!-- File input for image attachment -->
+            <label for="imageInput">Attach Image:</label>
+            <input type="file" id="imageInput" name="imageInput" accept="image/*">
+
+            <!-- Button to get user's location -->
+            <button type="button" id="locationButton" onclick="getLocation()">Get Location</button>
+
+            <button type="button" onclick="submitReport()">Submit Report</button>
+        </form>
+        <a href="dashboard.html">Back to Home</a>
+    </div>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            alert("Location obtained:\nLatitude: " + latitude + "\nLongitude: " + longitude);
+
+            // You can store the latitude and longitude in hidden input fields or use them as needed.
+            // For demonstration purposes, let's update the description field with the location.
+            document.getElementById('description').value += '\n\nLocation: ' + latitude + ', ' + longitude;
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        function submitReport() {
+            var issueType = document.getElementById('issueType').value;
+            var description = document.getElementById('description').value;
+            var imageInput = document.getElementById('imageInput');
+
+            if (issueType && description) {
+                // Check if a file is selected
+                if (imageInput.files.length > 0) {
+                    var imageFile = imageInput.files[0];
+                    // You can perform further actions with the image file
+                    alert('Report submitted successfully with image and location!');
+                } else {
+                    alert('Please attach an image.');
+                }
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+    </script>
+</body>
+
+</html>

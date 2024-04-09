@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Mini Trucks - Smart Citizen App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add any specific CSS for the rental page here -->
+</head>
+<body>
+    <a href="rental.html" class="nav-link">Rent Mini Trucks</a>
+
+    <div id="rental-container" class="app-container1">
+        <h1 class="text-2xl font-bold mb-4">Rent Mini Trucks</h1>
+
+        <form id="rental-form">
+            <label for="pickup-point">Pickup Point:</label>
+            <input type="text" id="pickup-point" name="pickup-point" required>
+
+            <label for="dropping-point">Dropping Point:</label>
+            <input type="text" id="dropping-point" name="dropping-point" required>
+
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" required>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+
+        <!-- Nearby Workshop Details -->
+        <section class="nearby-details">
+            <h2>Nearby Workshop</h2>
+            <p><strong>Bike and car  Workshop Name:</strong> ABC Workshop</p>
+            <p><strong>Phone Number:</strong> 1234567890</p>
+            <p><strong>Location:</strong> 123, Workshop Street, City</p>
+        </section>
+
+        <!-- Nearby Puncture Shop Details -->
+        <section class="nearby-details">
+            <h2>Nearby Puncture Shop</h2>
+            <p><strong>Shop Name:</strong> XYZ Puncture Shop</p>
+            <p><strong>Phone Number:</strong> 9876543210</p>
+            <p><strong>Location:</strong> 456, Puncture Street, City</p>
+        </section>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Get form values
+            var pickupPoint = document.getElementById("pickup-point").value;
+            var droppingPoint = document.getElementById("dropping-point").value;
+            var phoneNumber = document.getElementById("phone-number").value;
+            var name = document.getElementById("name").value;
+
+            // Perform any additional actions or validations here
+
+            // Example: Display an alert with form values
+            alert("Form submitted!\nPickup Point: " + pickupPoint +
+                  "\nDropping Point: " + droppingPoint +
+                  "\nPhone Number: " + phoneNumber +
+                  "\nName: " + name);
+
+            // You can also submit the form to a server using AJAX if needed
+        }
+    </script>
+</body>
+</html>

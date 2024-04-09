@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Citizen App - Traffic Updates</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ... (previous styles) ... */
+
+        .current-traffic,
+        .planned-roadworks {
+            background-color: #3498db; /* Blue background for sections */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .current-traffic h2,
+        .planned-roadworks h2 {
+            color: #ecf0f1; /* Light gray heading color */
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .current-traffic p,
+        .planned-roadworks p {
+            color: #ecf0f1; /* Light gray text color */
+            font-size: 1.1em;
+        }
+
+        .current-traffic ul,
+        .planned-roadworks ul {
+            list-style-type: none; /* Remove list bullets */
+            padding: 0;
+        }
+
+        .current-traffic li,
+        .planned-roadworks li {
+            margin-bottom: 15px;
+        }
+
+        .current-traffic h3,
+        .planned-roadworks h3 {
+            color: #ecf0f1; /* Light gray heading color */
+            font-size: 1.2em;
+        }
+
+        .current-traffic p,
+        .planned-roadworks p {
+            color: #ecf0f1; /* Light gray text color */
+            font-size: 1.1em;
+        }
+
+        .current-traffic p,
+        .planned-roadworks p {
+            color: #ecf0f1; /* Light gray text color */
+            font-size: 1.1em;
+        }
+
+        /* Hover effect for individual traffic updates */
+        .current-traffic li:hover,
+        .planned-roadworks li:hover {
+            background-color: #2980b9; /* Darker blue background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Traffic Updates</h1>
+
+        <section class="current-traffic">
+            <h2>Current Traffic Conditions</h2>
+            <p>Stay informed about the latest traffic updates in your city:</p>
+            <ul>
+                <li>
+                    <h3>Route A</h3>
+                    <p>Heavy traffic due to construction work. Expect delays.</p>
+                </li>
+                <li>
+                    <h3>Route B</h3>
+                    <p>Smooth traffic flow. No major issues reported.</p>
+                </li>
+                <!-- Add more routes and updates as needed -->
+            </ul>
+        </section>
+
+        <section class="planned-roadworks">
+            <h2>Planned Roadworks</h2>
+            <p>Upcoming roadworks that may affect traffic:</p>
+            <ul>
+                <li>
+                    <h3>Street X</h3>
+                    <p>Partial road closure from 9:00 AM to 4:00 PM for maintenance.</p>
+                </li>
+                <li>
+                    <h3>Highway Y</h3>
+                    <p>Lane restrictions from 10:00 PM to 6:00 AM for resurfacing.</p>
+                </li>
+                <!-- Add more planned roadworks as needed -->
+            </ul>
+        </section>
+
+        <a href="dashboard.html">Back to Home</a>
+    </div>
+</body>
+</html>
